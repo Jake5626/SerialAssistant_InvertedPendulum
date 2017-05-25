@@ -20,12 +20,12 @@ PID::~PID()
 
 void PID::on_pushButton_confirm_clicked()
 {
-    QString P = ui->textEdit_P->toPlainText();
-    //qDebug()<<P;
-    QString I = ui->textEdit_I->toPlainText();
-    QString D = ui->textEdit_D->toPlainText();
+//    QString P = ui->textEdit_P->toPlainText();
+//    //qDebug()<<P;
+//    QString I = ui->textEdit_I->toPlainText();
+//    QString D = ui->textEdit_D->toPlainText();
     //qDebug()<<P+I+D;
-    emit PIDSignal(P+I+D);
-    qDebug()<<P+I+D;
+//    emit PIDSignal(P+I+D);
+//    qDebug()<<P+I+D;
 
 }
