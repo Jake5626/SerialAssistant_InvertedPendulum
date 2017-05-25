@@ -51,7 +51,6 @@ public:
     QLabel *label_8;
     QComboBox *comboBox_CheckBit;
     QPushButton *pushButton_connect;
-    QTextEdit *textEdit_dataRec;
     QWidget *horizontalLayoutWidget_2;
     QHBoxLayout *horizontalLayout_9;
     QLabel *label_9;
@@ -68,6 +67,9 @@ public:
     QGroupBox *groupBox;
     QTextEdit *textEdit_dataSend;
     QPushButton *pushButton_send;
+    QGroupBox *groupBox_2;
+    QTextEdit *textEdit_dataRec;
+    QPushButton *pushButton;
     QWidget *tab_2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -82,7 +84,7 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tabWidget->setGeometry(QRect(10, 10, 871, 541));
+        tabWidget->setGeometry(QRect(10, 10, 871, 551));
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
         horizontalLayoutWidget_3 = new QWidget(tab);
@@ -123,7 +125,7 @@ public:
 
         pushButton_ClearData = new QPushButton(tab);
         pushButton_ClearData->setObjectName(QStringLiteral("pushButton_ClearData"));
-        pushButton_ClearData->setGeometry(QRect(140, 270, 71, 20));
+        pushButton_ClearData->setGeometry(QRect(60, 290, 71, 31));
         horizontalLayoutWidget_5 = new QWidget(tab);
         horizontalLayoutWidget_5->setObjectName(QStringLiteral("horizontalLayoutWidget_5"));
         horizontalLayoutWidget_5->setGeometry(QRect(60, 180, 160, 24));
@@ -144,10 +146,7 @@ public:
 
         pushButton_connect = new QPushButton(tab);
         pushButton_connect->setObjectName(QStringLiteral("pushButton_connect"));
-        pushButton_connect->setGeometry(QRect(60, 270, 71, 20));
-        textEdit_dataRec = new QTextEdit(tab);
-        textEdit_dataRec->setObjectName(QStringLiteral("textEdit_dataRec"));
-        textEdit_dataRec->setGeometry(QRect(270, 20, 521, 321));
+        pushButton_connect->setGeometry(QRect(140, 220, 71, 31));
         horizontalLayoutWidget_2 = new QWidget(tab);
         horizontalLayoutWidget_2->setObjectName(QStringLiteral("horizontalLayoutWidget_2"));
         horizontalLayoutWidget_2->setGeometry(QRect(60, 60, 160, 24));
@@ -168,10 +167,10 @@ public:
 
         checkBox_hex = new QCheckBox(tab);
         checkBox_hex->setObjectName(QStringLiteral("checkBox_hex"));
-        checkBox_hex->setGeometry(QRect(60, 230, 91, 20));
+        checkBox_hex->setGeometry(QRect(60, 260, 91, 20));
         gridLayoutWidget = new QWidget(tab);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(50, 310, 160, 98));
+        gridLayoutWidget->setGeometry(QRect(50, 340, 160, 131));
         gridLayout_2 = new QGridLayout(gridLayoutWidget);
         gridLayout_2->setSpacing(6);
         gridLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -210,13 +209,22 @@ public:
         groupBox->setGeometry(QRect(230, 340, 591, 171));
         textEdit_dataSend = new QTextEdit(groupBox);
         textEdit_dataSend->setObjectName(QStringLiteral("textEdit_dataSend"));
-        textEdit_dataSend->setGeometry(QRect(40, 30, 521, 101));
+        textEdit_dataSend->setGeometry(QRect(20, 30, 551, 101));
         pushButton_send = new QPushButton(groupBox);
         pushButton_send->setObjectName(QStringLiteral("pushButton_send"));
-        pushButton_send->setGeometry(QRect(500, 140, 80, 20));
+        pushButton_send->setGeometry(QRect(490, 140, 80, 20));
         textEdit_dataSend->raise();
         textEdit_dataSend->raise();
         pushButton_send->raise();
+        groupBox_2 = new QGroupBox(tab);
+        groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
+        groupBox_2->setGeometry(QRect(230, 10, 591, 321));
+        textEdit_dataRec = new QTextEdit(groupBox_2);
+        textEdit_dataRec->setObjectName(QStringLiteral("textEdit_dataRec"));
+        textEdit_dataRec->setGeometry(QRect(20, 30, 551, 281));
+        pushButton = new QPushButton(tab);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setGeometry(QRect(60, 220, 71, 31));
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
@@ -285,6 +293,8 @@ public:
         label_10->setText(QApplication::translate("MainWindow", "\344\270\262\345\217\243\345\217\267", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("MainWindow", "\345\217\221\351\200\201", Q_NULLPTR));
         pushButton_send->setText(QApplication::translate("MainWindow", "\345\217\221\351\200\201", Q_NULLPTR));
+        groupBox_2->setTitle(QApplication::translate("MainWindow", "\346\216\245\346\224\266", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("MainWindow", "\346\211\253\346\217\217\344\270\262\345\217\243", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Tab 1", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Tab 2", Q_NULLPTR));
     } // retranslateUi

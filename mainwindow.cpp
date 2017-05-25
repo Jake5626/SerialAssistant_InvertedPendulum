@@ -4,14 +4,18 @@
 #include "QtSerialPort/qserialportinfo.h"
 #include "qdebug.h"
 #include "qmessagebox.h"
+#include "pid.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    pidpage = new PID;
     init();
     connect(&serial,SIGNAL(readyRead()),this,SLOT(DataReceive()));
+
+    qDebug()<<connect(pidpage,SIGNAL(PIDSignal(QString)),this,SLOT(sendPID(QString)));
 }
 
 MainWindow::~MainWindow()
@@ -31,6 +35,7 @@ void MainWindow::SerialPortScan(){
 }
 
 void MainWindow::DataReceive(){
+    qDebug()<<"ok";
     if(ui->checkBox_hex->isChecked()){
         ui->textEdit_dataRec->insertPlainText(serial.readAll().toHex());
     }else{
@@ -113,4 +118,16 @@ void MainWindow::on_pushButton_send_clicked()
         QByteArray send = ui->textEdit_dataSend->toPlainText().toLatin1();
         serial.write(send,send.length());
     }
+}
+
+void MainWindow::on_pushButton_PIDSetting_clicked()
+{
+    pidpage = new PID();
+    connect(pidpage,SIGNAL(PIDSignal(QString)),this,SLOT(sendPID(QString)));
+    pidpage->show();
+}
+
+void MainWindow::sendPID(QString pid){
+    qDebug()<<pid;
+    qDebug()<<"ok"<<"fine";
 }
