@@ -11,11 +11,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    pidpage = new PID;
+    PID *pidpage = new PID;
     init();
     connect(&serial,SIGNAL(readyRead()),this,SLOT(DataReceive()));
 
-    qDebug()<<connect(pidpage,SIGNAL(PIDSignal(QString)),this,SLOT(sendPID(QString)));
+    //qDebug()<<connect(pidpage,SIGNAL(PPlusSignal(QString)),this,SLOT(sendPID(QString)));
 }
 
 MainWindow::~MainWindow()
@@ -122,12 +122,41 @@ void MainWindow::on_pushButton_send_clicked()
 
 void MainWindow::on_pushButton_PIDSetting_clicked()
 {
-    pidpage = new PID();
-    connect(pidpage,SIGNAL(PIDSignal(QString)),this,SLOT(sendPID(QString)));
+    PID *pidpage = new PID;
+    connect(pidpage,SIGNAL(PIDSignal(QString)),this,SLOT(sendPID(int)));
+    connect(pidpage,SIGNAL(PPlusSignal(int)),this,SLOT(sendPID(int)));
+    connect(pidpage,SIGNAL(PMinusSignal(int)),this,SLOT(sendPID(int)));
+    connect(pidpage,SIGNAL(IPlusSignal(int)),this,SLOT(sendPID(int)));
+    connect(pidpage,SIGNAL(IMinusSignal(int)),this,SLOT(sendPID(int)));
+    connect(pidpage,SIGNAL(DPlusSignal(int)),this,SLOT(sendPID(int)));
+    connect(pidpage,SIGNAL(DMinusSignal(int)),this,SLOT(sendPID(int)));
     pidpage->show();
 }
 
-void MainWindow::sendPID(QString pid){
+void MainWindow::sendPID(int pid){
     qDebug()<<pid;
-    qDebug()<<"ok"<<"fine";
+
+    switch (pid) {
+    case 0:
+        break;
+    case 1:
+        break;
+    case 2:
+        break;
+    case 3:
+        qDebug()<<"ok";
+        break;
+    case 4:
+        break;
+    case 5:
+        break;
+    case 6:
+        break;
+    case 7:
+        break;
+    case 8:
+        break;
+    default:
+        break;
+    }
 }

@@ -21,7 +21,7 @@ public:
 public slots:
     void init();
     void DataReceive();
-    void sendPID(QString pid);
+    void sendPID(int pid);
 
 private slots:
     void SerialPortScan();
@@ -38,7 +38,7 @@ private:
 
     bool isConnected = false;
     QSerialPort serial;
-    PID *pidpage;
+    //PID *pidpage;
 };
 
 #endif // MAINWINDOW_H
