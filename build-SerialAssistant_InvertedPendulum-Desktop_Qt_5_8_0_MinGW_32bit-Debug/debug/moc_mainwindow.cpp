@@ -75,7 +75,7 @@ static const uint qt_meta_data_MainWindow[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    5,
+    QMetaType::Void, QMetaType::QString,    5,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -92,7 +92,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->init(); break;
         case 1: _t->DataReceive(); break;
-        case 2: _t->sendPID((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 2: _t->sendPID((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 3: _t->SerialPortScan(); break;
         case 4: _t->on_pushButton_connect_clicked(); break;
         case 5: _t->on_pushButton_send_clicked(); break;

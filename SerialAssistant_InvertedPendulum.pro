@@ -7,6 +7,13 @@
 QT       += core gui
 QT += serialport
 
+CONFIG += qwt
+DEFINES += QT_DLL QWT_DLL
+LIBS += -L"F:\QT\QtCtrl\qwt-6.1.3\build-qwt-Desktop_Qt_5_8_0_MinGW_32bit-Debug\lib" -lqwtd
+LIBS += -L"F:\QT\QtCtrl\qwt-6.1.3\build-qwt-Desktop_Qt_5_8_0_MinGW_32bit-Debug\lib" -lqwt
+INCLUDEPATH += F:\QT\5.8\mingw53_32\include\qwt
+
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = SerialAssistant_InvertedPendulum

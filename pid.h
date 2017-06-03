@@ -18,16 +18,12 @@ public:
 //    MainWindow *mainw;
 
 signals:
-    void PIDSignal(int);
-    void PPlusSignal(int);
-    void PMinusSignal(int);
-    void IPlusSignal(int);
-    void IMinusSignal(int);
-    void DPlusSignal(int);
-    void DMinusSignal(int);
-
-public slots:
-    void on_pushButton_confirm_clicked();
+    void PPlusSignal(QString);
+    void PMinusSignal(QString);
+    void IPlusSignal(QString);
+    void IMinusSignal(QString);
+    void DPlusSignal(QString);
+    void DMinusSignal(QString);
 
 private:
     Ui::PID *ui;

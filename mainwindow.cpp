@@ -10,12 +10,16 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    interval.setMinValue(0.0);
+    interval.setMaxValue(1000.0);
     ui->setupUi(this);
-    PID *pidpage = new PID;
     init();
     connect(&serial,SIGNAL(readyRead()),this,SLOT(DataReceive()));
 
-    //qDebug()<<connect(pidpage,SIGNAL(PPlusSignal(QString)),this,SLOT(sendPID(QString)));
+    ui->qwtPlot->setAxisTitle(QwtPlot::xBottom,"Time[s]");
+    ui->qwtPlot->setAxisScale(QwtPlot::xBottom,interval.minValue(),interval.maxValue());
+    ui->qwtPlot->setAxisScale(QwtPlot::yLeft,-1000,1000);
+
 }
 
 MainWindow::~MainWindow()
@@ -123,40 +127,25 @@ void MainWindow::on_pushButton_send_clicked()
 void MainWindow::on_pushButton_PIDSetting_clicked()
 {
     PID *pidpage = new PID;
-    connect(pidpage,SIGNAL(PIDSignal(QString)),this,SLOT(sendPID(int)));
-    connect(pidpage,SIGNAL(PPlusSignal(int)),this,SLOT(sendPID(int)));
-    connect(pidpage,SIGNAL(PMinusSignal(int)),this,SLOT(sendPID(int)));
-    connect(pidpage,SIGNAL(IPlusSignal(int)),this,SLOT(sendPID(int)));
-    connect(pidpage,SIGNAL(IMinusSignal(int)),this,SLOT(sendPID(int)));
-    connect(pidpage,SIGNAL(DPlusSignal(int)),this,SLOT(sendPID(int)));
-    connect(pidpage,SIGNAL(DMinusSignal(int)),this,SLOT(sendPID(int)));
+    connect(pidpage,SIGNAL(PPlusSignal(QString)),this,SLOT(sendPID(QString)));
+    connect(pidpage,SIGNAL(PMinusSignal(QString)),this,SLOT(sendPID(QString)));
+    connect(pidpage,SIGNAL(IPlusSignal(QString)),this,SLOT(sendPID(QString)));
+    connect(pidpage,SIGNAL(IMinusSignal(QString)),this,SLOT(sendPID(QString)));
+    connect(pidpage,SIGNAL(DPlusSignal(QString)),this,SLOT(sendPID(QString)));
+    connect(pidpage,SIGNAL(DMinusSignal(QString)),this,SLOT(sendPID(QString)));
     pidpage->show();
 }
 
-void MainWindow::sendPID(int pid){
+void MainWindow::sendPID(QString pid){
     qDebug()<<pid;
-
-    switch (pid) {
-    case 0:
-        break;
-    case 1:
-        break;
-    case 2:
-        break;
-    case 3:
-        qDebug()<<"ok";
-        break;
-    case 4:
-        break;
-    case 5:
-        break;
-    case 6:
-        break;
-    case 7:
-        break;
-    case 8:
-        break;
-    default:
-        break;
-    }
+    pid.append("0d0a");
+    QByteArray order = QByteArray::fromHex(pid.toLatin1().data());
+    serial.write(order,order.length());
+    qDebug()<<order;
 }
+
+void MainWindow::plotCurve(){
+
+}
+
+

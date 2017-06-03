@@ -50,8 +50,7 @@ public:
     QHBoxLayout *horizontalLayout_6;
     QLabel *label_4;
     QLabel *label_5;
-    QComboBox *comboBox;
-    QPushButton *pushButton_confirm;
+    QComboBox *comboBox_accuracy;
 
     void setupUi(QWidget *PID)
     {
@@ -170,14 +169,11 @@ public:
 
         gridLayout->addWidget(label_5, 4, 0, 1, 1);
 
-        comboBox = new QComboBox(gridLayoutWidget);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
+        comboBox_accuracy = new QComboBox(gridLayoutWidget);
+        comboBox_accuracy->setObjectName(QStringLiteral("comboBox_accuracy"));
 
-        gridLayout->addWidget(comboBox, 4, 1, 1, 1);
+        gridLayout->addWidget(comboBox_accuracy, 4, 1, 1, 1);
 
-        pushButton_confirm = new QPushButton(groupBox);
-        pushButton_confirm->setObjectName(QStringLiteral("pushButton_confirm"));
-        pushButton_confirm->setGeometry(QRect(270, 300, 80, 20));
 
         retranslateUi(PID);
 
@@ -205,15 +201,14 @@ public:
         );
         label_4->setText(QApplication::translate("PID", "D", Q_NULLPTR));
         label_5->setText(QApplication::translate("PID", "\347\262\276\345\272\246", Q_NULLPTR));
-        comboBox->clear();
-        comboBox->insertItems(0, QStringList()
+        comboBox_accuracy->clear();
+        comboBox_accuracy->insertItems(0, QStringList()
          << QApplication::translate("PID", "100", Q_NULLPTR)
          << QApplication::translate("PID", "10", Q_NULLPTR)
          << QApplication::translate("PID", "1", Q_NULLPTR)
          << QApplication::translate("PID", "0.1", Q_NULLPTR)
          << QApplication::translate("PID", "0.01", Q_NULLPTR)
         );
-        pushButton_confirm->setText(QApplication::translate("PID", "\347\241\256\345\256\232\344\277\256\346\224\271", Q_NULLPTR));
     } // retranslateUi
 
 };

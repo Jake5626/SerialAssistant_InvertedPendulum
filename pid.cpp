@@ -17,24 +17,29 @@ PID::~PID()
     delete ui;
 }
 
-void PID::on_pushButton_confirm_clicked()
-{
-    int group = ui->comboBox_Group->currentIndex();
-    emit PIDSignal(group);
-//    QString P = ui->textEdit_P->toPlainText();
-//    //qDebug()<<P;
-//    QString I = ui->textEdit_I->toPlainText();
-//    QString D = ui->textEdit_D->toPlainText();
-    //qDebug()<<P+I+D;
-//    emit PIDSignal(P+I+D);
-//    qDebug()<<P+I+D;
-
-}
-
-
 void PID::on_pushButton_PPlus_clicked()
 {
-    emit PPlusSignal(3);
+    QString order;
+    int group = ui->comboBox_Group->currentIndex();
+    int acc = ui->comboBox_accuracy->currentIndex();
+    switch (group) {
+    case 0:order.append("00");break;
+    case 1:order.append("03");break;
+    case 2:order.append("06");break;
+    default:
+        break;
+    }
+    switch (acc) {
+    case 0:order.append("00");break;
+    case 1:order.append("01");break;
+    case 2:order.append("02");break;
+    case 3:order.append("03");break;
+    case 4:order.append("04");break;
+    default:
+        break;
+    }
+    order.append("00");
+    emit PPlusSignal(order);
     //return "PPlus signal";
 }
 
@@ -42,32 +47,132 @@ void PID::on_pushButton_PPlus_clicked()
 
 void PID::on_pushButton_PMinus_clicked()
 {
-    emit PMinusSignal(4);
+    QString order;
+    int group = ui->comboBox_Group->currentIndex();
+    int acc = ui->comboBox_accuracy->currentIndex();
+    switch (group) {
+    case 0:order.append("00");break;
+    case 1:order.append("03");break;
+    case 2:order.append("06");break;
+    default:
+        break;
+    }
+    switch (acc) {
+    case 0:order.append("00");break;
+    case 1:order.append("01");break;
+    case 2:order.append("02");break;
+    case 3:order.append("03");break;
+    case 4:order.append("04");break;
+    default:
+        break;
+    }
+    order.append("01");
+    emit PPlusSignal(order);
 }
 
 
 void PID::on_pushButton_IPlus_clicked()
 {
-    emit IPlusSignal(5);
+    QString order;
+    int group = ui->comboBox_Group->currentIndex();
+    int acc = ui->comboBox_accuracy->currentIndex();
+    switch (group) {
+    case 0:order.append("01");break;
+    case 1:order.append("04");break;
+    case 2:order.append("07");break;
+    default:
+        break;
+    }
+    switch (acc) {
+    case 0:order.append("00");break;
+    case 1:order.append("01");break;
+    case 2:order.append("02");break;
+    case 3:order.append("03");break;
+    case 4:order.append("04");break;
+    default:
+        break;
+    }
+    order.append("00");
+    emit PPlusSignal(order);
 }
 
 
 
 void PID::on_pushButton_IMinus_clicked()
 {
-    emit IMinusSignal(6);
+    QString order;
+    int group = ui->comboBox_Group->currentIndex();
+    int acc = ui->comboBox_accuracy->currentIndex();
+    switch (group) {
+    case 0:order.append("01");break;
+    case 1:order.append("04");break;
+    case 2:order.append("07");break;
+    default:
+        break;
+    }
+    switch (acc) {
+    case 0:order.append("00");break;
+    case 1:order.append("01");break;
+    case 2:order.append("02");break;
+    case 3:order.append("03");break;
+    case 4:order.append("04");break;
+    default:
+        break;
+    }
+    order.append("01");
+    emit PPlusSignal(order);
 }
 
 
 
 void PID::on_pushButton_DPlus_clicked()
 {
-    emit DPlusSignal(7);
+    QString order;
+    int group = ui->comboBox_Group->currentIndex();
+    int acc = ui->comboBox_accuracy->currentIndex();
+    switch (group) {
+    case 0:order.append("02");break;
+    case 1:order.append("05");break;
+    case 2:order.append("08");break;
+    default:
+        break;
+    }
+    switch (acc) {
+    case 0:order.append("00");break;
+    case 1:order.append("01");break;
+    case 2:order.append("02");break;
+    case 3:order.append("03");break;
+    case 4:order.append("04");break;
+    default:
+        break;
+    }
+    order.append("00");
+    emit PPlusSignal(order);
 }
 
 
 
 void PID::on_pushButton_DMinus_clicked()
 {
-    emit DMinusSignal(8);
+    QString order;
+    int group = ui->comboBox_Group->currentIndex();
+    int acc = ui->comboBox_accuracy->currentIndex();
+    switch (group) {
+    case 0:order.append("02");break;
+    case 1:order.append("05");break;
+    case 2:order.append("08");break;
+    default:
+        break;
+    }
+    switch (acc) {
+    case 0:order.append("00");break;
+    case 1:order.append("01");break;
+    case 2:order.append("02");break;
+    case 3:order.append("03");break;
+    case 4:order.append("04");break;
+    default:
+        break;
+    }
+    order.append("01");
+    emit PPlusSignal(order);
 }
