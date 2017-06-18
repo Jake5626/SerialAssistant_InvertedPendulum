@@ -183,7 +183,7 @@ public:
     void retranslateUi(QWidget *PID)
     {
         PID->setWindowTitle(QApplication::translate("PID", "Form", Q_NULLPTR));
-        groupBox->setTitle(QApplication::translate("PID", "\350\257\267\350\276\223\345\205\245\350\246\201\344\277\256\346\224\271\347\232\204PID\345\217\202\346\225\260", Q_NULLPTR));
+        groupBox->setTitle(QApplication::translate("PID", "\350\257\267\351\200\211\346\213\251\344\277\256\346\224\271\345\257\271\345\272\224\347\232\204PID\345\217\202\346\225\260", Q_NULLPTR));
         label_3->setText(QApplication::translate("PID", "\347\273\204\345\210\253", Q_NULLPTR));
         label->setText(QApplication::translate("PID", "P", Q_NULLPTR));
         label_2->setText(QApplication::translate("PID", "I", Q_NULLPTR));

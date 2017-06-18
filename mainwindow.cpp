@@ -2,6 +2,11 @@
 #include "ui_mainwindow.h"
 #include "QtSerialPort/qserialport.h"
 #include "QtSerialPort/qserialportinfo.h"
+#include "qwt_plot.h"
+#include "qwt_plot_curve.h"
+#include "qwt_plot_canvas.h"
+#include "qwt_plot_magnifier.h"
+#include "qwt_plot_panner.h"
 #include "qdebug.h"
 #include "qmessagebox.h"
 #include "pid.h"
@@ -20,6 +25,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->qwtPlot->setAxisScale(QwtPlot::xBottom,interval.minValue(),interval.maxValue());
     ui->qwtPlot->setAxisScale(QwtPlot::yLeft,-1000,1000);
 
+    (void) new QwtPlotMagnifier(ui->qwtPlot->canvas());
+    (void) new QwtPlotPanner(ui->qwtPlot->canvas());
+
+    double x = 0.0;
+    if(isConnected == true){
+        xs.append(x++);
+        ys.append(serial.readAll().toDouble());
+    }
+    curve.attach(ui->qwtPlot);
+    curve.setSamples(xs,ys);
+    curve.setCurveAttribute(QwtPlotCurve::Fitted,true);
+    curve.setPen(QPen(Qt::black));
 }
 
 MainWindow::~MainWindow()

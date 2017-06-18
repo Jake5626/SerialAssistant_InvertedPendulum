@@ -46,6 +46,10 @@ private:
     QSerialPort serial;
     QString PIDOrder;
     QwtInterval interval;
+    QwtPlotCurve curve;
+
+    QVector<double> xs;
+    QVector<double> ys;
     void plotCurve();
 };
 

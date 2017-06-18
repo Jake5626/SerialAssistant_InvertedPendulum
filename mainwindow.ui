@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -337,13 +337,6 @@
         </item>
        </layout>
       </widget>
-      <zorder>horizontalLayoutWidget</zorder>
-      <zorder>horizontalLayoutWidget_2</zorder>
-      <zorder>horizontalLayoutWidget_3</zorder>
-      <zorder>horizontalLayoutWidget_3</zorder>
-      <zorder>horizontalLayoutWidget_4</zorder>
-      <zorder>horizontalLayoutWidget_5</zorder>
-      <zorder>groupBox_5</zorder>
      </widget>
      <widget class="QGroupBox" name="groupBox_5">
       <property name="geometry">
@@ -433,9 +426,22 @@
        <rect>
         <x>20</x>
         <y>10</y>
-        <width>801</width>
-        <height>511</height>
+        <width>831</width>
+        <height>461</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>490</y>
+        <width>80</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>绘制图像</string>
       </property>
      </widget>
     </widget>

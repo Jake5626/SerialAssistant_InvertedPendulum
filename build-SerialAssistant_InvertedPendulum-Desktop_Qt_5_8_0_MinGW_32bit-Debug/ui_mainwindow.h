@@ -77,6 +77,7 @@ public:
     QCheckBox *checkBox;
     QWidget *tab_2;
     QwtPlot *qwtPlot;
+    QPushButton *pushButton_2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -222,12 +223,6 @@ public:
 
         horizontalLayout_8->addWidget(comboBox_CheckBit);
 
-        horizontalLayoutWidget->raise();
-        horizontalLayoutWidget_2->raise();
-        horizontalLayoutWidget_3->raise();
-        horizontalLayoutWidget_3->raise();
-        horizontalLayoutWidget_4->raise();
-        horizontalLayoutWidget_5->raise();
         groupBox_5 = new QGroupBox(tab);
         groupBox_5->setObjectName(QStringLiteral("groupBox_5"));
         groupBox_5->setGeometry(QRect(40, 200, 181, 131));
@@ -251,7 +246,10 @@ public:
         tab_2->setObjectName(QStringLiteral("tab_2"));
         qwtPlot = new QwtPlot(tab_2);
         qwtPlot->setObjectName(QStringLiteral("qwtPlot"));
-        qwtPlot->setGeometry(QRect(20, 10, 801, 511));
+        qwtPlot->setGeometry(QRect(20, 10, 831, 461));
+        pushButton_2 = new QPushButton(tab_2);
+        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setGeometry(QRect(770, 490, 80, 20));
         tabWidget->addTab(tab_2, QString());
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -267,7 +265,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -324,6 +322,7 @@ public:
         checkBox_hex->setText(QApplication::translate("MainWindow", "16\350\277\233\345\210\266\346\230\276\347\244\272", Q_NULLPTR));
         checkBox->setText(QApplication::translate("MainWindow", "\345\276\252\347\216\257\345\217\221\351\200\201\357\274\210\344\270\215\357\274\211", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "\344\270\273\347\225\214\351\235\242", Q_NULLPTR));
+        pushButton_2->setText(QApplication::translate("MainWindow", "\347\273\230\345\210\266\345\233\276\345\203\217", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "\347\273\230\345\233\276", Q_NULLPTR));
     } // retranslateUi
 
